@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#e07b54">
+  <title>にゃんこ通知</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ルームセットアップ画面 -->
+  <div id="room-setup">
+    <div class="room-setup-box">
+      <div class="room-logo">🐱</div>
+      <h1>にゃんこ通知</h1>
+      <p class="room-desc">家族・パートナーとデータをリアルタイム共有</p>
+      <button id="create-room-btn" class="btn btn-primary">新しいルームを作成</button>
+      <div class="setup-divider">または招待コードで参加</div>
+      <div class="form-group">
+        <input id="join-code-input" type="text" placeholder="XXXXXX" maxlength="6" autocomplete="off" spellcheck="false">
+      </div>
+      <button id="join-room-btn" class="btn btn-primary">参加する</button>
+      <p id="setup-error" class="setup-error hidden"></p>
+    </div>
+  </div>
+
+  <header class="hidden" id="main-header">
+    <span id="header-title">今日のスケジュール</span>
+    <div class="header-right">
+      <button id="room-badge-btn" class="room-badge" title="ルームコード"></button>
+      <button id="notif-btn" class="icon-btn" title="通知を有効にする">🔔</button>
+    </div>
+  </header>
+
+  <main id="main-content" class="hidden"></main>
+
+  <nav id="bottom-nav" class="hidden">
+    <button class="nav-btn active" data-page="today">
+      <span>📋</span><small>今日</small>
+    </button>
+    <button class="nav-btn" data-page="cats">
+      <span>🐱</span><small>猫</small>
+    </button>
+    <button class="nav-btn" data-page="meds">
+      <span>💊</span><small>投薬</small>
+    </button>
+    <button class="nav-btn" data-page="appts">
+      <span>🏥</span><small>通院</small>
+    </button>
+  </nav>
+
+  <!-- モーダル -->
+  <div id="modal-overlay" class="hidden">
+    <div id="modal-box">
+      <button id="modal-close">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+
+  <!-- ★ ここにFirebaseの設定を貼り付けてください ★ -->
+  <script>
+    const FIREBASE_CONFIG = {
+      apiKey:            "YOUR_API_KEY",
+      authDomain:        "YOUR_PROJECT.firebaseapp.com",
+      databaseURL:       "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
+      projectId:         "YOUR_PROJECT",
+      storageBucket:     "YOUR_PROJECT.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId:             "YOUR_APP_ID"
+    };
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
