@@ -1,0 +1,21 @@
+{
+  "name": "にゃんこ通知",
+  "short_name": "にゃんこ通知",
+  "description": "猫の投薬・通院リマインダー",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fdf6ee",
+  "theme_color": "#e07b54",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
